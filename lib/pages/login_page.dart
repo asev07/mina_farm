@@ -3,7 +3,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mina_farm/pages/signup_page.dart';
-
+import 'package:mina_farm/pages/HomePage.dart';
 import '../components/buttons.dart';
 import '../components/text_box.dart';
 
@@ -59,10 +59,18 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              MyButton(
-                buttonText: 'Login',
-                background: Colors.blue,
-                textColor: Colors.white,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Homepage(title: 'Medications')));
+                },
+                child: MyButton(
+                  buttonText: 'Login',
+                  background: Colors.blue,
+                  textColor: Colors.white,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(6.0),
@@ -90,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left:70),
+                        padding: const EdgeInsets.only(left: 70),
                         child: Center(
                           child: Text(
                             'Login with Google',
