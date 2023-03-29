@@ -25,7 +25,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               Container(
                 height: 250,
-                width: MediaQuery.sizeOf(context).width,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   //color: Colors.green,
                 ),
