@@ -32,15 +32,15 @@ class _IntroPageState extends State<IntroPage> {
                 MyPage(
                     link:
                         'https://assets9.lottiefiles.com/packages/lf20_47pyyfcf.json',
-                    text: 'Buy product online'),
+                    text: 'Buy gardening\ntools'),
                 MyPage(
                     link:
                         'https://assets3.lottiefiles.com/packages/lf20_x9c4hmtd.json',
-                    text: 'Online education'),
+                    text: 'Learn more about\ngardening'),
                 MyPage(
                     link:
                         'https://assets3.lottiefiles.com/private_files/lf30_ngencarb.json',
-                    text: 'Mina farm'),
+                    text: 'Mina urban\nagriculture'),
               ],
             ),
             Container(

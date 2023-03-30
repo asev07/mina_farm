@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-import 'Home.dart';
+import 'HomePage.dart';
 import 'Market_place_Page.dart';
 
 class Noha extends StatelessWidget {
@@ -43,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
           {
             var message = Navigator.push(context,
                 MaterialPageRoute(builder: (context) {
-                  return const Home(title: 'Medications');
+                  return const Home();
                 }));
           }
           break; // This message will be printed to the console
