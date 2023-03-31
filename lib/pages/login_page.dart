@@ -3,10 +3,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mina_farm/pages/signup_page.dart';
+import 'package:mina_farm/pages/Market_place_Page.dart';
 import '../components/buttons.dart';
 import '../components/text_box.dart';
-import 'HomePage.dart';
-
+import 'Home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Home(title: 'Mina')));
                 },
                 child: MyButton(
                   buttonText: 'Login',
