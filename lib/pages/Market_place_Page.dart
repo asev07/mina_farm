@@ -122,7 +122,7 @@ void _goToCartPage(){
         scrollDirection: Axis.vertical,
            // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: Column(
+          child:  Container(color: Colors.black12 ,child: Column(
 
             // Column is also a layout widget. It takes a list of children and
             // arranges them vertically. By default, it sizes itself to fit its
@@ -141,7 +141,8 @@ void _goToCartPage(){
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
 
-              const SizedBox(
+               Container(
+
                 height: 40,
 
               ),
@@ -247,7 +248,7 @@ Row(children: [
     ),
   ),
 ],),
-
+SizedBox(height: 20,),
 
         Row(
           children:[
@@ -256,7 +257,7 @@ Row(children: [
               height: 30 ,
               child: ListView.builder(
 
-                scrollDirection: Axis.vertical,
+                scrollDirection: Axis.horizontal,
                   itemCount : catagoryname.length,
                   itemBuilder: (context,index){
                   return _catagory(catagoryname[index]);
@@ -287,6 +288,7 @@ Row(children: [
 
             ],
           ),
+      ),
 
       ),
     bottomNavigationBar: BottomNavigationBar(
@@ -352,19 +354,19 @@ Row(children: [
         ElevatedButton(
           onPressed: () {},
 
+
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.green,
+              foregroundColor: Colors.green, backgroundColor: Colors.green,
               padding: const EdgeInsets.all(0.0),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0)
               ),
-              primary: Colors.green,
 
           ),
 
           child: Text(
             "\t\t$title\t\t",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: Colors.black, fontSize: 20),
           ),
 
         )

@@ -124,7 +124,7 @@ class _cartpage extends State<CartPage> {
         scrollDirection: Axis.vertical,
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child:Container(color: Colors.black12 ,child: Column(
 
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -187,7 +187,7 @@ class _cartpage extends State<CartPage> {
 
           ],
         ),
-
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -297,6 +297,7 @@ class _cartpage extends State<CartPage> {
     ),
       SizedBox(height: 30,),
     ],
+
     );
   }
 }
