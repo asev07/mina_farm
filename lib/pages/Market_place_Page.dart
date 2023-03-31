@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mina_farm/pages/CartPage.dart';
+import 'package:mina_farm/pages/ProductView.dart';
 
 import 'EduPage.dart';
 import 'Home.dart';
@@ -24,25 +26,29 @@ class Homepage extends StatefulWidget {
 
 class _homepage extends State<Homepage> {
 
-  List<String> img2 = [
+  List<String> catagoryname =["All","Seeds","Plant","Tools",];
+  static List<String> img2 = [
     "assets/product_imgs/bakela_seed.png",
     "assets/product_imgs/ginger.png",
     "assets/product_imgs/plant.png",
     "assets/product_imgs/potato.png",
   ];
-  List<String> img = [
+  static List<String> img = [
     "assets/product_imgs/shovel.png",
     "assets/product_imgs/rake.png",
     "assets/product_imgs/mini_shovel.png",
     "assets/product_imgs/pick_axe.png"
   ];
+
+  var allimg = img2 + img;
   int _selectedIndex = 1;   //used to identify the selected page
     double product_price =  299.99;
     static int pi=0;
     static int ti=0;
- List<String> pname=["\t\tpea\n\t 145.99 Birr","\t\tginger\n\t 99.99 Birr","\t\tplant\n\t 528.99 Birr","\t\tpotato\n\t 98.99 Birr"];
+  static List<String> pname=["\t\tPea\n\t 145.99 Birr","\t\tGinger\n\t 99.99 Birr","\t\tPlant\n\t 528.99 Birr","\t\tPotato\n\t 98.99 Birr"];
 
-  List<String> tname=["\t\tshovel\n\t 458.99 Birr","\t\trake\n\t 598.99 Birr","\t\tmini shovel\n\t 698.99 Birr","\t\tpick_axe\n\t 728.99 Birr"];
+  static List<String> tname=["\t\tShovel\n\t 458.99 Birr","\t\tRake\n\t 598.99 Birr","\t\tMini Shovel\n\t 698.99 Birr","\t\tPick Axe\n\t 728.99 Birr"];
+var allname = pname + tname;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -79,10 +85,31 @@ class _homepage extends State<Homepage> {
     });
   }
 
+void _goToCartPage(){
+    setState(() {
+      Navigator.push(context,
+        MaterialPageRoute(builder: (context) {
+          return const CartPage(title: "cart page");
+        }
+        ),
+      );
+    }
+      );
+  }
+  void _toproductview(){
 
+      setState(() {
+        Navigator.push(context,
+          MaterialPageRoute(builder: (context) {
+            return const ProductView(title: "cart page");
+          }
+          ),
+        );
+      }
+      );
 
-
-  static List<Widget> _productList = [];
+  }
+  static final List<Widget> _productList = [];
 
 
 
@@ -92,11 +119,8 @@ class _homepage extends State<Homepage> {
     return Scaffold(
       appBar: null,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Center(
-
-
-          // Center is a layout widget. It takes a single child and positions it
+        scrollDirection: Axis.vertical,
+           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
           child: Column(
 
@@ -118,9 +142,11 @@ class _homepage extends State<Homepage> {
             children: <Widget>[
 
               const SizedBox(
-                height: 60,
+                height: 40,
+
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children:  <Widget>[
 
@@ -133,17 +159,41 @@ class _homepage extends State<Homepage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width-270,
                   ),
-                  IconButton(
-                    iconSize: 35,
-                    icon: const Icon(
-                      Icons.shopping_cart_outlined,
+
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                  child: ElevatedButton(
+                    onPressed: _goToCartPage,
+
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.green,
+                      padding: const EdgeInsets.all(0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0)
+                      ),
+                      primary: Colors.white,
+
                     ),
-                    onPressed: () {
-                      setState( () {},);
-                    },
+                  child: const ImageIcon(
+
+                      AssetImage("assets/cart.png")
+                      ,size:100,
+
                   ),
+                  ),
+      ),
+                  Container(
+                    height: 20,
+                    width: 20,
+                   decoration:  BoxDecoration(
 
-
+                     color: Colors.green.shade100,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Align(
+                      alignment: Alignment.center,child: Text("1",style: TextStyle(fontSize: 20)),
+                    ), ),
               ],
               ),
 
@@ -151,8 +201,15 @@ class _homepage extends State<Homepage> {
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width:MediaQuery.of(context).size.width-35 ,
+Row(children: [
+  const SizedBox(
+    width: 15,
+  ),
+
+  Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                width:MediaQuery.of(context).size.width-95 ,
                 height: 50,
                 child: TextField(
                 decoration: InputDecoration(
@@ -167,79 +224,70 @@ class _homepage extends State<Homepage> {
                 ),
               ),
               ),
-
-
-              const SizedBox(
-                height: 10,
               ),
-        SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: TextButton(
+  SizedBox(width: 10,),
+  SizedBox(
+    width: 60,
+    height: 60,
+    child: ElevatedButton(
+      onPressed: () {},
 
-                 onPressed: _addSeedProduct,
-
-                child: const Align(
-                  alignment: Alignment.centerLeft,child: Text(
-                  "  Seeds",
-                  style:TextStyle(fontSize: 24.0,color: Colors.black),
-
-                  // Set the width to 200 logical pixels
-                  textAlign: TextAlign.left,),
-
-
-                ),
-            ),
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.green,
+        padding: const EdgeInsets.all(0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
         ),
+        primary: Colors.white,
+
+      ),
+      child: const ImageIcon(
+        AssetImage("assets/searchfilter.png")
+        ,size:90,),
+    ),
+  ),
+],),
 
 
+        Row(
+          children:[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 30 ,
+              child: ListView.builder(
+
+                scrollDirection: Axis.vertical,
+                  itemCount : catagoryname.length,
+                  itemBuilder: (context,index){
+                  return _catagory(catagoryname[index]);
+                }),
+            ),
+        ],
+        ),
+              const SizedBox(
+                height: 20,
+              ),
               Container(
-                height: 170 ,
-                width: MediaQuery.of(context).size.width-40,
-                child:
-                    ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (context,index){
-                      return _product(img2[index], pname[index]);
-                    }),
-
-
+                height:MediaQuery.of(context).size.width-35,
+              width: MediaQuery.of(context).size.width,
+              child: GridView.builder(
+                itemCount: allimg.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 80,
+                  mainAxisSpacing: 30,
                 ),
-
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: TextButton(
-
-                  onPressed: _addToolProduct,
-
-                  child:const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                    "  Gardening tools",
-                    style: TextStyle(fontSize: 24.0,color: Colors.black),
-                    // Set the width to 200 logical pixels
-                    textAlign: TextAlign.left,),
-
-
-                ),
-                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return _product(allimg[index], allname[index]);
+                },
+              ),
               ),
 
-              Container(
-                height: 170 ,
-                width: MediaQuery.of(context).size.width-40,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (context,index){
-                      return _product(img[index], tname[index]);
-                    }),
 
-              ),
 
             ],
           ),
-        ),
+
       ),
     bottomNavigationBar: BottomNavigationBar(
     items: const <BottomNavigationBarItem>[
@@ -297,11 +345,38 @@ class _homepage extends State<Homepage> {
 
   }
 
+  Widget _catagory(String title){
+    return  Row(
+      children:[
+        const SizedBox(width: 25,),
+        ElevatedButton(
+          onPressed: () {},
 
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.green,
+              padding: const EdgeInsets.all(0.0),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0)
+              ),
+              primary: Colors.green,
 
+          ),
 
+          child: Text(
+            "\t\t$title\t\t",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+
+        )
+
+      ],
+    );
+
+  }
   Widget _product(String img,String detail) {
-    return Container(
+    return InkWell(
+
+      child :Container(
       width: 130,
       height: 90,
       margin: const EdgeInsets.only(left: 12,right: 12),
@@ -346,7 +421,7 @@ class _homepage extends State<Homepage> {
                 )
             ),
 
-            child: Image.asset(img,height:100,width: 130)
+            child: Image.asset(img,height:100,width: 160)
           ),
 
           Container(
@@ -365,6 +440,8 @@ class _homepage extends State<Homepage> {
       ),
 
 
+    ),
+        onTap:_toproductview,
     );
 
 
