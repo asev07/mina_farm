@@ -57,8 +57,9 @@ class _HomeState extends State<Home> {
                 children: [
                   Image.asset(
                     'lib/images/fruits.jpg',
-                    height: 230,
+                    height: MediaQuery.of(context).size.height / 3,
                     width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fill,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
@@ -66,8 +67,8 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
-                          height: 40,
-                          width: 220,
+                          height: MediaQuery.of(context).size.height / 18,
+                          width: MediaQuery.of(context).size.width / 1.55,
                           child: TextField(
                             textAlign: TextAlign.left,
                             decoration: InputDecoration(

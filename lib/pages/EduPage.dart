@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'DescriptionPage.dart';
 import 'HomePage.dart';
 import 'Market_place_Page.dart';
 
@@ -30,48 +31,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int _selectedIndex = 2;
 
   _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      switch(_selectedIndex) {
+      switch (_selectedIndex) {
         case 0:
           {
-            var message = Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
-                  return const Home();
-                }));
+            var message =
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const Home();
+            }));
           }
           break; // This message will be printed to the console
         case 1:
           {
-            var message = Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
-                  return const Homepage(title: 'Medications');
-                }));
+            var message =
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const Homepage(title: 'Medications');
+            }));
           }
           break; // This message will be printed to the console
         case 2:
           {
-            var message = Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
-                  return const Noha();
-                }));
+            var message =
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const Noha();
+            }));
           }
-          break;// This message will be printed to the console
+          break; // This message will be printed to the console
       }
       print("selected index is : $_selectedIndex");
-
-
-
     });
   }
-
-
-
-
 
   void _incrementCounter() {
     setState(() {
@@ -80,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-
     });
   }
 
@@ -93,277 +85,236 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text('Mina Education'),
-        ),
-        body: SingleChildScrollView(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('Mina Education'),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
           child: Column(
-              // Center is a layout widget. It takes a single child and positions it
-              // in the middle of the parent.
-              children: [
-                Column(
-                  // Column is also a layout widget. It takes a list of children and
-                  // arranges them vertically. By default, it sizes itself to fit its
-                  // children horizontally, and tries to be as tall as its parent.
-                  //
-                  // Column has various properties to control how it sizes itself and
-                  // how it positions its children. Here we use mainAxisAlignment to
-                  // center the children vertically; the main axis here is the vertical
-                  // axis because Columns are vertical (the cross axis would be
-                  // horizontal).
-                  //   margin: EdgeInsets.all(24),
-
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Column(
-                      children: [
-                        ExpansionTile(
-                          title: const Text('Essentials'),
-                          children: [
-                            Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset(
-                                            'assets/adequate space icon.png'),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Adequate space"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 5),
-                                      )
-                                    ]),
-                                    Spacer(),
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset("assets/soil.png"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Quality soil"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 5),
-                                      )
-                                    ])
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset("assets/seed.png"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Seedlings"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 5),
-                                      )
-                                    ]),
-                                    Spacer(),
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset("assets/pest.png"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Pest control"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 5),
-                                      )
-                                    ])
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset("assets/tools.png"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Gardening Tools"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 5),
-                                      )
-                                    ]),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        ExpansionTile(
-                          title: const Text('What is recommended to grow'),
-                          children: [
-                            Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Column(children: [
-                                      Container(
-                                        child:
-                                            Image.asset('assets/lettuce.png'),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Lettuce"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 5),
-                                      )
-                                    ]),
-                                    Spacer(),
-                                    Column(children: [
-                                      Container(
-                                        child:
-                                            Image.asset("assets/carrots.png"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Carrots"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 5),
-                                      )
-                                    ])
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Column(children: [
-                                      Container(
-                                        child:
-                                            Image.asset("assets/edamame.png"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Green Beans"),
-                                        margin:
-                                            EdgeInsets.only(left: 24, top: 5),
-                                      )
-                                    ]),
-                                    Spacer(),
-                                    Column(children: [
-                                      Container(
-                                        child: Image.asset("assets/peas.png"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 15),
-                                        width: 97,
-                                        height: 97,
-                                      ),
-                                      Container(
-                                        child: Text("Peas"),
-                                        margin:
-                                            EdgeInsets.only(right: 24, top: 5),
-                                      )
-                                    ])
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        ExpansionTile(
-                          title: Text("Common mistakes while gardening"),
-                          children: [
-                            ListTile(
-                              title: Text(
-                                "Planting too much",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                    margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                    child: Text("Common vegetables to garden",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ))
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: InkWell(
+                      child: Container(
+                          margin:
+                              const EdgeInsets.only(left: 20.0, right: 20.0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.white,
                               ),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Planting too soon (or too late)",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30))),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Image(
+                                    image: AssetImage("assets/lettuce 1.jpg")),
                               ),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Planting in just any old soil",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Planting where there's not enough sun",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Crowding your plants",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
+                              Text(
+                                "Lettuce",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    background: Paint()..color = Colors.white),
+                              )
+                            ],
+                          )),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return const Description();
+                          }),
+                        );
+                      },
                     ),
-                  ],
-                ),
-              ]),
-
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Image(
+                                  image: AssetImage("assets/tomate-1.jpg")),
+                            ),
+                            Text(
+                              "Tomatoes",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  background: Paint()..color = Colors.white),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Image(
+                                  image: AssetImage("assets/pepper.webp")),
+                            ),
+                            Text(
+                              "Pepper",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  background: Paint()..color = Colors.white),
+                            )
+                          ],
+                        )),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Image(
+                                  image: AssetImage("assets/Carrots (1).jpg")),
+                            ),
+                            Text(
+                              "Carrots",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  background: Paint()..color = Colors.white),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Image(
+                                  image: AssetImage("assets/spinach.webp")),
+                            ),
+                            Text(
+                              "Spinach",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  background: Paint()..color = Colors.white),
+                            )
+                          ],
+                        )),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Image(
+                                  image: AssetImage("assets/red onion.jpg")),
+                            ),
+                            Text(
+                              "Red Onions",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  background: Paint()..color = Colors.white),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-    items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-    label: 'Home',
-    backgroundColor: Colors.black,
-    ),
-    BottomNavigationBarItem(
-    icon:Icon(Icons.shopping_bag_outlined) ,
-    label: 'Mina Market',
-    backgroundColor: Colors.black,
-
-    ),
-    BottomNavigationBarItem(
-    icon: Icon(Icons.podcasts_outlined),
-    label: 'Education',
-    backgroundColor: Colors.black,
-    ),
-    ],
-    currentIndex: _selectedIndex,
-    selectedItemColor: Colors.green,
-    onTap: _onItemTapped,
-
-    ),
-
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.black,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Mina Market',
+            backgroundColor: Colors.black,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.podcasts_outlined),
+            label: 'Education',
+            backgroundColor: Colors.black,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
