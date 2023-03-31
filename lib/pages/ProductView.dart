@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import 'CartPage.dart';
 import 'EduPage.dart';
-import 'Home.dart';
+import 'HomePage.dart';
 import 'Market_place_Page.dart';
 
 class ProductView extends StatefulWidget {
@@ -89,7 +89,7 @@ class _productview extends State<ProductView> {
           {
             var message = Navigator.push(context,
                 MaterialPageRoute(builder: (context) {
-                  return const Home(title: 'Medications');
+                  return const Home();
                 }));
           }
           break; // This message will be printed to the console

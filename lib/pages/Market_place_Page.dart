@@ -22,9 +22,12 @@ class Homepage extends StatefulWidget {
 }
 
 class _homepage extends State<Homepage> {
-  List<String> img2 = [
-
-  List<String> catagoryname =["All","Seeds","Plant","Tools",];
+  List<String> catagoryname = [
+    "All",
+    "Seeds",
+    "Plant",
+    "Tools",
+  ];
   static List<String> img2 = [
     "assets/product_imgs/bakela_seed.png",
     "assets/product_imgs/ginger.png",
@@ -37,34 +40,26 @@ class _homepage extends State<Homepage> {
     "assets/product_imgs/mini_shovel.png",
     "assets/product_imgs/pick_axe.png"
   ];
+
+  var allimg = img2 + img;
   int _selectedIndex = 1; //used to identify the selected page
   double product_price = 299.99;
   static int pi = 0;
   static int ti = 0;
-  List<String> pname = [
-    "\t\tpea\n\t 145.99 Birr",
-    "\t\tginger\n\t 99.99 Birr",
-    "\t\tplant\n\t 528.99 Birr",
-    "\t\tpotato\n\t 98.99 Birr"
+  static List<String> pname = [
+    "\t\tPea\n\t 145.99 Birr",
+    "\t\tGinger\n\t 99.99 Birr",
+    "\t\tPlant\n\t 528.99 Birr",
+    "\t\tPotato\n\t 98.99 Birr"
   ];
 
-  List<String> tname = [
-    "\t\tshovel\n\t 458.99 Birr",
-    "\t\trake\n\t 598.99 Birr",
-    "\t\tmini shovel\n\t 698.99 Birr",
-    "\t\tpick_axe\n\t 728.99 Birr"
+  static List<String> tname = [
+    "\t\tShovel\n\t 458.99 Birr",
+    "\t\tRake\n\t 598.99 Birr",
+    "\t\tMini Shovel\n\t 698.99 Birr",
+    "\t\tPick Axe\n\t 728.99 Birr"
   ];
-=======
-
-  var allimg = img2 + img;
-  int _selectedIndex = 1;   //used to identify the selected page
-    double product_price =  299.99;
-    static int pi=0;
-    static int ti=0;
-  static List<String> pname=["\t\tPea\n\t 145.99 Birr","\t\tGinger\n\t 99.99 Birr","\t\tPlant\n\t 528.99 Birr","\t\tPotato\n\t 98.99 Birr"];
-
-  static List<String> tname=["\t\tShovel\n\t 458.99 Birr","\t\tRake\n\t 598.99 Birr","\t\tMini Shovel\n\t 698.99 Birr","\t\tPick Axe\n\t 728.99 Birr"];
-var allname = pname + tname;
+  var allname = pname + tname;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -98,32 +93,28 @@ var allname = pname + tname;
     });
   }
 
-  static List<Widget> _productList = [];
-=======
-void _goToCartPage(){
+  void _goToCartPage() {
     setState(() {
-      Navigator.push(context,
+      Navigator.push(
+        context,
         MaterialPageRoute(builder: (context) {
           return const CartPage(title: "cart page");
-        }
-        ),
+        }),
       );
-    }
-      );
+    });
   }
-  void _toproductview(){
 
-      setState(() {
-        Navigator.push(context,
-          MaterialPageRoute(builder: (context) {
-            return const ProductView(title: "cart page");
-          }
-          ),
-        );
-      }
+  void _toproductview() {
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return const ProductView(title: "cart page");
+        }),
       );
-
+    });
   }
+
   static final List<Widget> _productList = [];
 
   @override
@@ -131,15 +122,12 @@ void _goToCartPage(){
     return Scaffold(
       appBar: null,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Column(
         scrollDirection: Axis.vertical,
-           // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child:  Container(color: Colors.black12 ,child: Column(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Container(
+          color: Colors.black12,
+          child: Column(
             // Column is also a layout widget. It takes a list of children and
             // arranges them vertically. By default, it sizes itself to fit its
             // children horizontally, and tries to be as tall as its parent.
@@ -156,13 +144,8 @@ void _goToCartPage(){
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const SizedBox(
-                height: 60,
-
-               Container(
-
+              Container(
                 height: 40,
-
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -178,193 +161,126 @@ void _goToCartPage(){
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 270,
                   ),
-
                   SizedBox(
                     width: 60,
                     height: 60,
-                  child: ElevatedButton(
-                    onPressed: _goToCartPage,
-
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.green,
-                      padding: const EdgeInsets.all(0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100.0)
+                    child: ElevatedButton(
+                      onPressed: _goToCartPage,
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.green,
+                        padding: const EdgeInsets.all(0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100.0)),
+                        primary: Colors.white,
                       ),
-                      primary: Colors.white,
-
+                      child: const ImageIcon(
+                        AssetImage("assets/cart.png"),
+                        size: 100,
+                      ),
                     ),
-                    onPressed: () {
-                      setState(
-                        () {},
-                      );
-                    },
                   ),
-                ],
-                  child: const ImageIcon(
-
-                      AssetImage("assets/cart.png")
-                      ,size:100,
-
-                  ),
-                  ),
-      ),
                   Container(
                     height: 20,
                     width: 20,
-                   decoration:  BoxDecoration(
-
-                     color: Colors.green.shade100,
+                    decoration: BoxDecoration(
+                      color: Colors.green.shade100,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Align(
-                      alignment: Alignment.center,child: Text("1",style: TextStyle(fontSize: 20)),
-                    ), ),
-              ],
+                      alignment: Alignment.center,
+                      child: Text("1", style: TextStyle(fontSize: 20)),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 35,
-Row(children: [
-  const SizedBox(
-    width: 15,
-  ),
-
-  Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                width:MediaQuery.of(context).size.width-95 ,
-                height: 50,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide.none,
-                    ),
-                    filled: true,
-                    fillColor: Colors.grey[200],
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 15,
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: TextButton(
-                  onPressed: _addSeedProduct,
-                  child: const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      "  Seeds",
-                      style: TextStyle(fontSize: 24.0, color: Colors.black),
-
-                      // Set the width to 200 logical pixels
-                      textAlign: TextAlign.left,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width - 95,
+                      height: 50,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search...',
+                          prefixIcon: Icon(Icons.search),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Container(
-                height: 170,
-                width: MediaQuery.of(context).size.width - 40,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (context, index) {
-                      return _product(img2[index], pname[index]);
-                    }),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.green,
+                        padding: const EdgeInsets.all(0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        primary: Colors.white,
+                      ),
+                      child: const ImageIcon(
+                        AssetImage("assets/searchfilter.png"),
+                        size: 90,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: TextButton(
-                  onPressed: _addToolProduct,
-                  child: const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "  Gardening tools",
-                      style: TextStyle(fontSize: 24.0, color: Colors.black),
-                      // Set the width to 200 logical pixels
-                      textAlign: TextAlign.left,
-                    ),
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 30,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: catagoryname.length,
+                        itemBuilder: (context, index) {
+                          return _catagory(catagoryname[index]);
+                        }),
                   ),
+                ],
               ),
-              ),
-  SizedBox(width: 10,),
-  SizedBox(
-    width: 60,
-    height: 60,
-    child: ElevatedButton(
-      onPressed: () {},
-
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.green,
-        padding: const EdgeInsets.all(0),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0)
-        ),
-        primary: Colors.white,
-
-      ),
-      child: const ImageIcon(
-        AssetImage("assets/searchfilter.png")
-        ,size:90,),
-    ),
-  ),
-],),
-SizedBox(height: 20,),
-
-        Row(
-          children:[
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 30 ,
-              child: ListView.builder(
-
-                scrollDirection: Axis.horizontal,
-                  itemCount : catagoryname.length,
-                  itemBuilder: (context,index){
-                  return _catagory(catagoryname[index]);
-                }),
-            ),
-        ],
-        ),
               const SizedBox(
                 height: 20,
               ),
               Container(
-                height:MediaQuery.of(context).size.width-35,
-              width: MediaQuery.of(context).size.width,
-              child: GridView.builder(
-                itemCount: allimg.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 80,
-                  mainAxisSpacing: 30,
+                height: MediaQuery.of(context).size.width - 35,
+                width: MediaQuery.of(context).size.width,
+                child: GridView.builder(
+                  itemCount: allimg.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 80,
+                    mainAxisSpacing: 30,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return _product(allimg[index], allname[index]);
+                  },
                 ),
-                itemBuilder: (BuildContext context, int index) {
-                  return _product(allimg[index], allname[index]);
-                },
-              ),
-              ),
-              Container(
-                height: 170,
-                width: MediaQuery.of(context).size.width - 40,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (context, index) {
-                      return _product(img[index], tname[index]);
-                    }),
               ),
             ],
           ),
-      ),
-
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -415,114 +331,87 @@ SizedBox(height: 20,),
       }
     });
   }
-  Widget _product(String img, String detail) {
-    return Container(
-  Widget _catagory(String title){
-    return  Row(
-      children:[
-        const SizedBox(width: 25,),
+
+  Widget _catagory(String title) {
+    return Row(
+      children: [
+        const SizedBox(
+          width: 25,
+        ),
         ElevatedButton(
           onPressed: () {},
-
-
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.green, backgroundColor: Colors.green,
-              padding: const EdgeInsets.all(0.0),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0)
-              ),
-
+            foregroundColor: Colors.green,
+            backgroundColor: Colors.green,
+            padding: const EdgeInsets.all(0.0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0)),
           ),
-
           child: Text(
             "\t\t$title\t\t",
             style: TextStyle(color: Colors.black, fontSize: 20),
           ),
-
         )
-
       ],
     );
-
   }
-  Widget _product(String img,String detail) {
-    return InkWell(
 
-      child :Container(
-      width: 130,
-      height: 90,
-      margin: const EdgeInsets.only(left: 12, right: 12),
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 7.0,
-            spreadRadius: 0.5,
-            offset: Offset(
-              -4,
-              -0.01,
+  Widget _product(String img, String detail) {
+    return InkWell(
+      child: Container(
+        width: 130,
+        height: 90,
+        margin: const EdgeInsets.only(left: 12, right: 12),
+        decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 7.0,
+              spreadRadius: 0.5,
+              offset: Offset(
+                -4,
+                -0.01,
+              ),
+            )
+          ],
+          color: Color.fromRGBO(110, 31, 12, 0.1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(23),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+                height: 120,
+                width: 130,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(23),
+                        topLeft: Radius.circular(23),
+                        bottomLeft: Radius.circular(3),
+                        bottomRight: Radius.circular(3))),
+                child: Image.asset(img, height: 100, width: 160)),
+            Container(
+              height: 5,
             ),
-          )
-        ],
-        color: Color.fromRGBO(110, 31, 12, 0.1),
-        borderRadius: BorderRadius.all(
-          Radius.circular(23),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                detail,
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
+            Container(
+              height: 5,
+            ),
+          ],
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-              height: 120,
-              width: 130,
-              decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(23),
-                      topLeft: Radius.circular(23),
-                      bottomLeft: Radius.circular(3),
-                      bottomRight: Radius.circular(3))),
-              child: Image.asset(img, height: 100, width: 130)),
-
-            height: 120,
-            width: 130,
-            decoration: const BoxDecoration(
-
-              shape: BoxShape.rectangle,
-              color: Colors.white,
-
-
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(23),
-                    topLeft: Radius.circular(23),
-                    bottomLeft: Radius.circular(3),
-                    bottomRight: Radius.circular(3)
-                )
-            ),
-
-            child: Image.asset(img,height:100,width: 160)
-          ),
-          Container(
-            height: 5,
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              detail,
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 14),
-            ),
-          ),
-          Container(
-            height: 5,
-          ),
-        ],
-      ),
-
-
-    ),
-        onTap:_toproductview,
+      onTap: _toproductview,
     );
   }
 }

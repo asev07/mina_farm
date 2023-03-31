@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 import 'EduPage.dart';
-import 'Home.dart';
+import 'HomePage.dart';
 import 'Market_place_Page.dart';
 
 class CartPage extends StatefulWidget {
@@ -76,7 +76,7 @@ class _cartpage extends State<CartPage> {
           {
             var message = Navigator.push(context,
                 MaterialPageRoute(builder: (context) {
-                  return const Home(title: 'Medications');
+                  return const Home();
                 }));
           }
           break; // This message will be printed to the console
