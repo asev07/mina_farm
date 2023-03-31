@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mina_farm/pages/CartPage.dart';
+import 'package:mina_farm/pages/ProductView.dart';
 
 import 'EduPage.dart';
 import 'HomePage.dart';
@@ -21,12 +23,15 @@ class Homepage extends StatefulWidget {
 
 class _homepage extends State<Homepage> {
   List<String> img2 = [
+
+  List<String> catagoryname =["All","Seeds","Plant","Tools",];
+  static List<String> img2 = [
     "assets/product_imgs/bakela_seed.png",
     "assets/product_imgs/ginger.png",
     "assets/product_imgs/plant.png",
     "assets/product_imgs/potato.png",
   ];
-  List<String> img = [
+  static List<String> img = [
     "assets/product_imgs/shovel.png",
     "assets/product_imgs/rake.png",
     "assets/product_imgs/mini_shovel.png",
@@ -49,6 +54,17 @@ class _homepage extends State<Homepage> {
     "\t\tmini shovel\n\t 698.99 Birr",
     "\t\tpick_axe\n\t 728.99 Birr"
   ];
+=======
+
+  var allimg = img2 + img;
+  int _selectedIndex = 1;   //used to identify the selected page
+    double product_price =  299.99;
+    static int pi=0;
+    static int ti=0;
+  static List<String> pname=["\t\tPea\n\t 145.99 Birr","\t\tGinger\n\t 99.99 Birr","\t\tPlant\n\t 528.99 Birr","\t\tPotato\n\t 98.99 Birr"];
+
+  static List<String> tname=["\t\tShovel\n\t 458.99 Birr","\t\tRake\n\t 598.99 Birr","\t\tMini Shovel\n\t 698.99 Birr","\t\tPick Axe\n\t 728.99 Birr"];
+var allname = pname + tname;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -83,6 +99,32 @@ class _homepage extends State<Homepage> {
   }
 
   static List<Widget> _productList = [];
+=======
+void _goToCartPage(){
+    setState(() {
+      Navigator.push(context,
+        MaterialPageRoute(builder: (context) {
+          return const CartPage(title: "cart page");
+        }
+        ),
+      );
+    }
+      );
+  }
+  void _toproductview(){
+
+      setState(() {
+        Navigator.push(context,
+          MaterialPageRoute(builder: (context) {
+            return const ProductView(title: "cart page");
+          }
+          ),
+        );
+      }
+      );
+
+  }
+  static final List<Widget> _productList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +136,10 @@ class _homepage extends State<Homepage> {
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
           child: Column(
+        scrollDirection: Axis.vertical,
+           // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child:  Container(color: Colors.black12 ,child: Column(
             // Column is also a layout widget. It takes a list of children and
             // arranges them vertically. By default, it sizes itself to fit its
             // children horizontally, and tries to be as tall as its parent.
@@ -112,8 +158,14 @@ class _homepage extends State<Homepage> {
             children: <Widget>[
               const SizedBox(
                 height: 60,
+
+               Container(
+
+                height: 40,
+
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   const Align(
@@ -126,10 +178,21 @@ class _homepage extends State<Homepage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 270,
                   ),
-                  IconButton(
-                    iconSize: 35,
-                    icon: const Icon(
-                      Icons.shopping_cart_outlined,
+
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                  child: ElevatedButton(
+                    onPressed: _goToCartPage,
+
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.green,
+                      padding: const EdgeInsets.all(0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0)
+                      ),
+                      primary: Colors.white,
+
                     ),
                     onPressed: () {
                       setState(
@@ -138,12 +201,41 @@ class _homepage extends State<Homepage> {
                     },
                   ),
                 ],
+                  child: const ImageIcon(
+
+                      AssetImage("assets/cart.png")
+                      ,size:100,
+
+                  ),
+                  ),
+      ),
+                  Container(
+                    height: 20,
+                    width: 20,
+                   decoration:  BoxDecoration(
+
+                     color: Colors.green.shade100,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Align(
+                      alignment: Alignment.center,child: Text("1",style: TextStyle(fontSize: 20)),
+                    ), ),
+              ],
               ),
               const SizedBox(
                 height: 20,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width - 35,
+Row(children: [
+  const SizedBox(
+    width: 15,
+  ),
+
+  Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                width:MediaQuery.of(context).size.width-95 ,
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -200,7 +292,64 @@ class _homepage extends State<Homepage> {
                       textAlign: TextAlign.left,
                     ),
                   ),
+              ),
+              ),
+  SizedBox(width: 10,),
+  SizedBox(
+    width: 60,
+    height: 60,
+    child: ElevatedButton(
+      onPressed: () {},
+
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.green,
+        padding: const EdgeInsets.all(0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+        ),
+        primary: Colors.white,
+
+      ),
+      child: const ImageIcon(
+        AssetImage("assets/searchfilter.png")
+        ,size:90,),
+    ),
+  ),
+],),
+SizedBox(height: 20,),
+
+        Row(
+          children:[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 30 ,
+              child: ListView.builder(
+
+                scrollDirection: Axis.horizontal,
+                  itemCount : catagoryname.length,
+                  itemBuilder: (context,index){
+                  return _catagory(catagoryname[index]);
+                }),
+            ),
+        ],
+        ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height:MediaQuery.of(context).size.width-35,
+              width: MediaQuery.of(context).size.width,
+              child: GridView.builder(
+                itemCount: allimg.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 80,
+                  mainAxisSpacing: 30,
                 ),
+                itemBuilder: (BuildContext context, int index) {
+                  return _product(allimg[index], allname[index]);
+                },
+              ),
               ),
               Container(
                 height: 170,
@@ -214,7 +363,8 @@ class _homepage extends State<Homepage> {
               ),
             ],
           ),
-        ),
+      ),
+
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -265,9 +415,40 @@ class _homepage extends State<Homepage> {
       }
     });
   }
-
   Widget _product(String img, String detail) {
     return Container(
+  Widget _catagory(String title){
+    return  Row(
+      children:[
+        const SizedBox(width: 25,),
+        ElevatedButton(
+          onPressed: () {},
+
+
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.green, backgroundColor: Colors.green,
+              padding: const EdgeInsets.all(0.0),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0)
+              ),
+
+          ),
+
+          child: Text(
+            "\t\t$title\t\t",
+            style: TextStyle(color: Colors.black, fontSize: 20),
+          ),
+
+        )
+
+      ],
+    );
+
+  }
+  Widget _product(String img,String detail) {
+    return InkWell(
+
+      child :Container(
       width: 130,
       height: 90,
       margin: const EdgeInsets.only(left: 12, right: 12),
@@ -303,6 +484,25 @@ class _homepage extends State<Homepage> {
                       bottomLeft: Radius.circular(3),
                       bottomRight: Radius.circular(3))),
               child: Image.asset(img, height: 100, width: 130)),
+
+            height: 120,
+            width: 130,
+            decoration: const BoxDecoration(
+
+              shape: BoxShape.rectangle,
+              color: Colors.white,
+
+
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(23),
+                    topLeft: Radius.circular(23),
+                    bottomLeft: Radius.circular(3),
+                    bottomRight: Radius.circular(3)
+                )
+            ),
+
+            child: Image.asset(img,height:100,width: 160)
+          ),
           Container(
             height: 5,
           ),
@@ -319,6 +519,10 @@ class _homepage extends State<Homepage> {
           ),
         ],
       ),
+
+
+    ),
+        onTap:_toproductview,
     );
   }
 }
